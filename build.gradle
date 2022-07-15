@@ -5,6 +5,8 @@ plugins {
 }
 
 apply plugin: 'jacoco'
+
+
 group = 'com.weCode'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -24,12 +26,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.flywaydb:flyway-core'
-	implementation 'org.modelmapper:modelmapper:2.3.0'
+	implementation 'org.modelmapper:modelmapper:3.1.0'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.mockito:mockito-core'
+	testImplementation 'org.assertj:assertj-core'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

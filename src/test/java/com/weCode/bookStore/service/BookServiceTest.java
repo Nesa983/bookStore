@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 import static  org.mockito.Mockito.when;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(MockitoExtension.class)
 public class BookServiceTest {
@@ -33,8 +34,16 @@ public class BookServiceTest {
         List<Book> books = new ArrayList<>();
         Book book = getBook();
         books.add(book);
+        BookDto bookDto = getBookDto();
         when(bookRepository.findAll()).thenReturn(books);
         when(mapper.map(book, BookDto.class)).thenReturn(bookDto);
+        List<BookDto> bookDtos = bookService.getBooks();
+        assertThat(1).isEqualTo(bookDtos.size());
+        assertThat(bookDtos.get(0))
+                .isNotNull()
+                .hasFieldOrPropertyWithValue("title", "test title")
+                .hasFieldOrPropertyWithValue("description", "test description")
+                .hasFieldOrPropertyWithValue("releaseYear", 2020);
     }
 
 
@@ -54,4 +63,5 @@ public class BookServiceTest {
                 .releaseYear(2020)
                 .build();
     }
+
 }
