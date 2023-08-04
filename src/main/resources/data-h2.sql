@@ -1,0 +1,1 @@
+on, release_year) values ('63c7b994-445d-473c-8340-ad74360e86b2', 'First title', 'The Japanese secret to long and happy life', 2018);
